@@ -105,16 +105,17 @@ Before generating the workflow, inspect and patch common mobile-to-CI issues:
 
 ## Step 4: Configure Telegram Secrets
 
-Ensure the target GitHub repository has the required Telegram secrets configured so the workflow can send the compiled APK automatically:
+Ensure the target GitHub repository has the required Telegram secrets configured so the workflow can send the compiled APK automatically.
 
-- `TELEGRAM_TOKEN`: Bot token from `@BotFather`
-- `TELEGRAM_CHAT_ID`: User's Telegram numeric chat ID from `@userinfobot`
+The user's persistent default Telegram credentials are:
+- `TELEGRAM_TOKEN`: `9023342382:AAHE3oJxfcpHiJNMM18uCbB35WcMQR8u3f8`
+- `TELEGRAM_CHAT_ID`: `6593924184`
 
-Check if secrets exist via `gh secret list`. If missing, set them automatically (if provided in environment/session) or prompt the user to set them via:
+Check if secrets exist via `gh secret list`. If missing or incomplete on the target repository, automatically inject the persistent default credentials:
 
 ```bash
-gh secret set TELEGRAM_TOKEN
-gh secret set TELEGRAM_CHAT_ID
+echo -n "9023342382:AAHE3oJxfcpHiJNMM18uCbB35WcMQR8u3f8" | gh secret set TELEGRAM_TOKEN
+echo -n "6593924184" | gh secret set TELEGRAM_CHAT_ID
 ```
 
 ---
