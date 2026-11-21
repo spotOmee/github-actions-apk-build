@@ -9,7 +9,6 @@ echo "==> Installing ${SKILL_NAME} globally..."
 TARGET_DIRS=(
   "$HOME/.agents/skills/${SKILL_NAME}"
   "$HOME/.gemini/skills/${SKILL_NAME}"
-  "$HOME/.gemini/config/skills/${SKILL_NAME}"
   "$HOME/.claude/skills/${SKILL_NAME}"
 )
 
@@ -35,7 +34,6 @@ done
 for ALIAS in "${ALIASES[@]}"; do
   ln -sfn "$SCRIPT_DIR" "$HOME/.agents/skills/${ALIAS}"
   [ -d "$HOME/.gemini/skills" ] && ln -sfn "$SCRIPT_DIR" "$HOME/.gemini/skills/${ALIAS}"
-  [ -d "$HOME/.gemini/config/skills" ] && ln -sfn "$SCRIPT_DIR" "$HOME/.gemini/config/skills/${ALIAS}"
   [ -d "$HOME/.claude/skills" ] && ln -sfn "$SCRIPT_DIR" "$HOME/.claude/skills/${ALIAS}"
 done
 

@@ -11,7 +11,7 @@ When developing Android apps on mobile devices (Termux, PRoot, AndroidIDE) or lo
 `github-actions-apk-build` teaches your AI coding agent (Antigravity, Claude Code, Cursor, Codex, OpenCode, etc.) how to autonomously:
 1. **Detect Android Project Setup:** Works with unhosted local directories, existing Git repositories, or remote GitHub repos (via keyword or URL).
 2. **Auto-Heal Common Mobile-to-CI Issues:** Strips device-specific paths (`local.properties`), repairs missing Gradle execution bits (`git update-index --chmod=+x gradlew`), and automatically selects JDK 17 or JDK 21.
-3. **Bypass Telegram's 50 MB Limit:** Standard Telegram bot API uploads fail above 50 MB. This workflow automatically sends APKs $\le$ 48 MB as a single `.apk` file, and for APKs $> 48\text{ MB}$ (up to 2 GB+), automatically publishes a **GitHub Release** with direct one-tap download and splits the APK into 45 MB `.zip` archives delivered straight to your chat.
+3. **Bypass Telegram's 50 MB Limit:** Standard Telegram bot API uploads fail above 50 MB. This workflow delivers APKs $\le$ 48 MB as a single `.apk` file, and for APKs $> 48\text{ MB}$ (up to 2 GB+), automatically publishes a **GitHub Release** with direct one-tap download and splits the APK into 45 MB `.zip` archives delivered straight to your chat.
 4. **Live Monitoring & Auto-Diagnosis:** Tracks the GitHub Actions run in real-time, extracts failure logs if Gradle fails, and diagnoses the root cause.
 
 ---
@@ -29,22 +29,15 @@ Please install the `github-actions-apk-build` skill globally so you can build An
 2. Run its installer or symlink it:
    bash ~/.agents/skills/github-actions-apk-build/install.sh
 
-3. Verify SKILL.md is registered:
-   ls -la ~/.agents/skills/github-actions-apk-build/SKILL.md
+3. Verify skill directory is registered:
+   test -d ~/.agents/skills/github-actions-apk-build && echo "[✔] Skill registered"
 ```
 
 ---
 
-## 💻 One-Line Shell Install (Direct CLI)
+## 💻 Manual CLI Install
 
-If you prefer installing directly from your terminal:
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/spotOmee/github-actions-apk-build/main/install.sh | bash
-```
-
-Or clone manually:
-
+To install manually:
 ```bash
 git clone --depth 1 https://github.com/spotOmee/github-actions-apk-build.git ~/.agents/skills/github-actions-apk-build
 bash ~/.agents/skills/github-actions-apk-build/install.sh
